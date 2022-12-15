@@ -1,0 +1,67 @@
+API testing is frequently automated and used by DevOps, QA and development teams for continuous testing practices
+
+An API testing process should begin with a clearly defined scope of the program as well as a full understanding of how the API should work. Some questions to consider include:
+
+1)What endpoints are available for testing?
+2)What response codes are expected for successful requests?
+3)What response codes are expected for unsuccessful requests?
+4)Which error message is expected to appear in the body of an unsuccessful request?
+
+
+various API tests
+To make sure the application programming interface is functioning properly, several API tests can be run. They span general to specialised software analysis. Here are a few illustrations of these tests.
+
+
+testing for validity
+The three main sets of criteria used in validation testing to evaluate API projects are the usability of the API as a product, the transactional behaviour, and the operational effectiveness. During validation testing, common inquiries are:
+
+security evaluation
+The access control architecture and the API's encryption techniques are both tested for security. Authorization checks for resource access and user rights management are verified during security testing.
+
+Testing for penetration
+Security testing is built upon by penetration testing. In this test, a someone with little API expertise attacks the API. Testers may now examine the attack vector from a different angle thanks to this. The attacks employed in penetration testing might be restricted to certain API components or can aim at the API as a whole.
+
+Fuzz analysis
+Fuzz testing attempts to induce undesirable behaviour, such as a forced crash or overflow, by forcing introducing large volumes of random data, often known as noise or fuzz, into the system.
+
+security evaluation
+a load test
+To determine how many calls an API can handle, load testing is employed. This test is frequently carried out following the completion of a particular unit or codebase to ascertain whether the theoretical solution can also function as a real-world solution while operating under a specific load.
+
+Reliability analysis
+Testing for reliability makes that the platforms are connected securely and that the API can give consistent results.
+
+advantages of testing APIs
+API testing ensures that platform connections are dependable, secure, and scalable. Particular advantages include:
+
+Automation of API tests takes less code than automation of GUI tests, which speeds up testing and lowers testing costs.
+Without a user interface, developers may access the app during API testing, which helps the tester to see faults early in the development process rather than having to wait until they become more serious problems. As faults may be fixed more effectively when discovered early, this could result in financial savings.
+API testing are independent of technology and language. JSON or XML is used to communicate data, which includes HTTP requests and answers.
+
+*********Our API Work
+
+The API endpoints that show the Page and App Data are called when the user first accesses the page. The data that the API must deliver to the page being shown is known as Page Data, whereas App Data refers to the data that is shared with other components.
+
+import getAPIURL from '../../src/api/getAPIURL'
+
+describe('getAPIURL', () => { beforeEach(() => { window.NEXT_DATA = { buildId: '1', } })
+
+To guarantee that the previous cache is not served to the current version of the application to avoid issues when breaking challenges are introduced in the API, the build id 1 is appended to all queries.
+
+afterEach(() => { delete window.NEXT_DATA })
+
+This removes all of the info that the window has returned. NEXT DATA upon the completion of all test cases.
+
+should add NEXT DATA, says t. expect(getAPIURL('/foo')), buildId to the query string'. '/api/foo?v=1') toBe)
+
+This verifies that the build id is added to the end of the URI.
+
+It shouldn't add NEXT DATA at the end. window will be deleted if buildId is true and NEXT DATA is unknown. expect(getAPIURL('/foo')) in NEXT DATA. toBe("/api/foo");) ) )
+
+NEXT DATA_ should not be inserted if it is undefined.
+
+
+
+
+
+
